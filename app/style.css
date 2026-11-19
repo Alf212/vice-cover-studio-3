@@ -1,0 +1,165 @@
+/* Vice Cover Studio — a dark little studio lit by neon. */
+
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #12081f;
+  color: #f5eefc;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 20px;
+  align-items: start;
+}
+
+.brand h1 {
+  font-family: 'Anton', 'Arial Black', sans-serif;
+  font-size: 34px;
+  letter-spacing: 1px;
+  margin: 0 0 6px;
+  background: linear-gradient(92deg, #fff6ad, #ffb347 45%, #ff5da2 80%, #38e1ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.brand p { margin: 0 0 4px; color: #cdbce8; font-size: 13.5px; line-height: 1.45; }
+
+.group {
+  border: 1px solid #37215c;
+  border-radius: 12px;
+  padding: 12px 14px 14px;
+  margin-top: 14px;
+  background: #1a0d30;
+}
+
+.group h2 {
+  font-family: 'Anton', 'Arial Black', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffd76a;
+  margin: 0 0 10px;
+}
+
+.drop {
+  border: 2px dashed #5b3a8f;
+  border-radius: 10px;
+  padding: 16px 10px;
+  text-align: center;
+  color: #cdbce8;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.drop.over { border-color: #19e3d2; color: #ffffff; background: #22104a; }
+
+.tray { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+
+.thumb {
+  padding: 0;
+  border: 2px solid #37215c;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 62px;
+  height: 62px;
+  cursor: pointer;
+  background: none;
+}
+
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb:hover { border-color: #ff5da2; }
+
+.hint { color: #9d8bc7; font-size: 12.5px; margin: 8px 0 0; }
+
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.row-label { color: #9d8bc7; font-size: 12.5px; }
+
+button {
+  font: inherit;
+  font-size: 13px;
+  color: #f5eefc;
+  background: #2a1650;
+  border: 1px solid #4a2d85;
+  border-radius: 8px;
+  padding: 7px 11px;
+  cursor: pointer;
+}
+
+button:hover { border-color: #ff5da2; }
+
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg button.on {
+  background: linear-gradient(92deg, #ff5da2, #ff8a3d);
+  border-color: transparent;
+  color: #1c0b2e;
+  font-weight: 700;
+}
+
+.slider { display: block; margin-top: 10px; font-size: 13px; color: #cdbce8; }
+.slider input { width: 100%; accent-color: #ff5da2; margin-top: 4px; }
+
+.field { display: block; margin-top: 8px; font-size: 13px; color: #cdbce8; }
+.field input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  font: inherit;
+  color: #ffffff;
+  background: #12081f;
+  border: 1px solid #4a2d85;
+  border-radius: 8px;
+}
+
+.field input:focus { outline: 2px solid #19e3d2; border-color: transparent; }
+
+.export {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  font-family: 'Anton', 'Arial Black', sans-serif;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: linear-gradient(92deg, #ff5da2, #ff8a3d 55%, #ffd76a);
+  color: #1c0b2e;
+  border: none;
+}
+
+#status { min-height: 18px; color: #8ef2e4; font-size: 13px; margin: 10px 0 0; }
+
+.stage { position: sticky; top: 20px; text-align: center; }
+
+#cover {
+  max-width: 100%;
+  max-height: calc(100vh - 90px);
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px #37215c;
+  cursor: grab;
+  touch-action: none;
+}
+
+#cover:active { cursor: grabbing; }
+.stage-hint { text-align: center; }
+
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .stage { position: static; }
+}
